@@ -18,7 +18,7 @@ const getVillainBySlug = async (request, response) => {
 const createNewVillain = async (request, response) => {
     const { name, movie, slug } = request.body
     if ( !name || !movie || !slug ) {
-        return response.status(400).send('Oops!')
+        return response.status(400).send('Oops! Name, movie, slug is required')
     }
     const newVillain = await models.villains.create({ name, movie, slug, }) 
         return response.status(201).send(newVillain)
